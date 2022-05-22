@@ -4,19 +4,24 @@ import geopy.distance
 distance = 11
 dep = 'FAB'
 arr = 'FAB'
+depname = 'Farnborough'
 
 
 def distfinder():
 	global distance
 	global dep
+	global depname
+	global arrname
 
-	depcords = airportsdata.load('IATA')[dep]
+	depcords = airportsdata.load('IATA')[arr]
 	depcords = depcords.pop('lat'), depcords.pop('lon')
 	dep = input("Departure code? ").upper()
 	airports = airportsdata.load('IATA')
 	arrivalfull = airports[dep]
 	lat = arrivalfull.pop('lat')
 	lon = arrivalfull.pop('lon')
+	depname = arrivalfull.pop('name')
+	arrname = airportsdata.load('IATA')[arr].pop('name')
 	arrcords = (lat, lon)
 	distance = geopy.distance.geodesic(depcords, arrcords).mi
 
@@ -29,7 +34,9 @@ def farnborougharr():
 		flightnumber = "DE3"
 	else:
 		flightnumber = "DE11"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def lutonarr():
@@ -40,7 +47,9 @@ def lutonarr():
 		flightnumber = "DE111"
 	else:
 		flightnumber = "DE101"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def bigginarr():
@@ -52,6 +61,9 @@ def bigginarr():
 	else:
 		flightnumber = "DE49"
 	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def teterarr():
@@ -63,6 +75,9 @@ def teterarr():
 	else:
 		flightnumber = "DE311"
 	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def haywardarr():
@@ -74,6 +89,9 @@ def haywardarr():
 	else:
 		flightnumber = "DE411"
 	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def tasharr():
@@ -85,6 +103,9 @@ def tasharr():
 	else:
 		flightnumber = "N/A - No shorthaul out of Tashkent"
 	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def kansaiarr():
@@ -96,6 +117,9 @@ def kansaiarr():
 	else:
 		flightnumber = "259"
 	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def doualaarr():
@@ -107,3 +131,6 @@ def doualaarr():
 	else:
 		flightnumber = "DE703"
 	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
