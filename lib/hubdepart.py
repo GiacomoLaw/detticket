@@ -1,6 +1,10 @@
 import airportsdata
 import geopy.distance
 
+distance = 11
+dep = 'FAB'
+arr = 'FAB'
+
 
 def distfinder():
 	global distance
@@ -16,6 +20,7 @@ def distfinder():
 	arrcords = (lat, lon)
 	distance = geopy.distance.geodesic(depcords, arrcords).mi
 
+
 def farnborough():
 	global dep
 	dep = "FAB"
@@ -25,6 +30,7 @@ def farnborough():
 	else:
 		flightnumber = "DE11"
 	print(dep, arr, flightnumber)
+
 
 def luton():
 	global dep
@@ -36,6 +42,7 @@ def luton():
 		flightnumber = "DE101"
 	print(dep, arr, flightnumber)
 
+
 def biggin():
 	global dep
 	dep = "BQH"
@@ -45,6 +52,7 @@ def biggin():
 	else:
 		flightnumber = "DE49"
 	print(dep, arr, flightnumber)
+
 
 def teter():
 	global dep
@@ -56,6 +64,7 @@ def teter():
 		flightnumber = "DE311"
 	print(dep, arr, flightnumber)
 
+
 def hayward():
 	global dep
 	dep = "HWD"
@@ -65,6 +74,7 @@ def hayward():
 	else:
 		flightnumber = "DE411"
 	print(dep, arr, flightnumber)
+
 
 def tash():
 	global dep
@@ -76,6 +86,7 @@ def tash():
 		flightnumber = "N/A - No shorthaul out of Tashkent"
 	print(dep, arr, flightnumber)
 
+
 def kansai():
 	global dep
 	dep = "KIX"
@@ -85,6 +96,7 @@ def kansai():
 	else:
 		flightnumber = "259"
 	print(dep, arr, flightnumber)
+
 
 def douala():
 	global dep
