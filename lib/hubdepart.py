@@ -2,9 +2,12 @@ import airportsdata
 import geopy.distance
 
 
-def farnborough():
-	dep = "FAB"
-	depcords = (51.2757987976, -0.7763329744)
+def distfinder():
+	global distance
+	global arr
+
+	depcords = airportsdata.load('IATA')[dep]
+	depcords = depcords.pop('lat'), depcords.pop('lon')
 	arr = input("Arrival code? ").upper()
 	airports = airportsdata.load('IATA')
 	arrivalfull = airports[arr]
@@ -12,6 +15,11 @@ def farnborough():
 	lon = arrivalfull.pop('lon')
 	arrcords = (lat, lon)
 	distance = geopy.distance.geodesic(depcords, arrcords).mi
+
+def farnborough():
+	global dep
+	dep = "FAB"
+	distfinder()
 	if distance > 1000:
 		flightnumber = "DE3"
 	else:
@@ -19,16 +27,9 @@ def farnborough():
 	print(dep, arr, flightnumber)
 
 def luton():
+	global dep
 	dep = "LTN"
-	depcords = airportsdata.load('IATA')[dep]
-	depcords = depcords.pop('lat'), depcords.pop('lon')
-	arr = input("Arrival code? ").upper()
-	airports = airportsdata.load('IATA')
-	arrivalfull = airports[arr]
-	lat = arrivalfull.pop('lat')
-	lon = arrivalfull.pop('lon')
-	arrcords = (lat, lon)
-	distance = geopy.distance.geodesic(depcords, arrcords).mi
+	distfinder()
 	if distance > 1000:
 		flightnumber = "DE111"
 	else:
@@ -36,16 +37,9 @@ def luton():
 	print(dep, arr, flightnumber)
 
 def biggin():
+	global dep
 	dep = "BQH"
-	depcords = airportsdata.load('IATA')[dep]
-	depcords = depcords.pop('lat'), depcords.pop('lon')
-	arr = input("Arrival code? ").upper()
-	airports = airportsdata.load('IATA')
-	arrivalfull = airports[arr]
-	lat = arrivalfull.pop('lat')
-	lon = arrivalfull.pop('lon')
-	arrcords = (lat, lon)
-	distance = geopy.distance.geodesic(depcords, arrcords).mi
+	distfinder()
 	if distance > 1000:
 		flightnumber = "DE51"
 	else:
@@ -53,16 +47,9 @@ def biggin():
 	print(dep, arr, flightnumber)
 
 def teter():
+	global dep
 	dep = "TEB"
-	depcords = airportsdata.load('IATA')[dep]
-	depcords = depcords.pop('lat'), depcords.pop('lon')
-	arr = input("Arrival code? ").upper()
-	airports = airportsdata.load('IATA')
-	arrivalfull = airports[arr]
-	lat = arrivalfull.pop('lat')
-	lon = arrivalfull.pop('lon')
-	arrcords = (lat, lon)
-	distance = geopy.distance.geodesic(depcords, arrcords).mi
+	distfinder()
 	if distance > 1000:
 		flightnumber = "DE301"
 	else:
@@ -70,16 +57,9 @@ def teter():
 	print(dep, arr, flightnumber)
 
 def hayward():
+	global dep
 	dep = "HWD"
-	depcords = airportsdata.load('IATA')[dep]
-	depcords = depcords.pop('lat'), depcords.pop('lon')
-	arr = input("Arrival code? ").upper()
-	airports = airportsdata.load('IATA')
-	arrivalfull = airports[arr]
-	lat = arrivalfull.pop('lat')
-	lon = arrivalfull.pop('lon')
-	arrcords = (lat, lon)
-	distance = geopy.distance.geodesic(depcords, arrcords).mi
+	distfinder()
 	if distance > 1000:
 		flightnumber = "DE401"
 	else:
@@ -87,16 +67,9 @@ def hayward():
 	print(dep, arr, flightnumber)
 
 def tash():
+	global dep
 	dep = "TAS"
-	depcords = airportsdata.load('IATA')[dep]
-	depcords = depcords.pop('lat'), depcords.pop('lon')
-	arr = input("Arrival code? ").upper()
-	airports = airportsdata.load('IATA')
-	arrivalfull = airports[arr]
-	lat = arrivalfull.pop('lat')
-	lon = arrivalfull.pop('lon')
-	arrcords = (lat, lon)
-	distance = geopy.distance.geodesic(depcords, arrcords).mi
+	distfinder()
 	if distance > 1000:
 		flightnumber = "DE81"
 	else:
@@ -104,16 +77,9 @@ def tash():
 	print(dep, arr, flightnumber)
 
 def kansai():
+	global dep
 	dep = "KIX"
-	depcords = airportsdata.load('IATA')[dep]
-	depcords = depcords.pop('lat'), depcords.pop('lon')
-	arr = input("Arrival code? ").upper()
-	airports = airportsdata.load('IATA')
-	arrivalfull = airports[arr]
-	lat = arrivalfull.pop('lat')
-	lon = arrivalfull.pop('lon')
-	arrcords = (lat, lon)
-	distance = geopy.distance.geodesic(depcords, arrcords).mi
+	distfinder()
 	if distance > 1000:
 		flightnumber = "261"
 	else:
@@ -121,16 +87,9 @@ def kansai():
 	print(dep, arr, flightnumber)
 
 def douala():
+	global dep
 	dep = "DLA"
-	depcords = airportsdata.load('IATA')[dep]
-	depcords = depcords.pop('lat'), depcords.pop('lon')
-	arr = input("Arrival code? ").upper()
-	airports = airportsdata.load('IATA')
-	arrivalfull = airports[arr]
-	lat = arrivalfull.pop('lat')
-	lon = arrivalfull.pop('lon')
-	arrcords = (lat, lon)
-	distance = geopy.distance.geodesic(depcords, arrcords).mi
+	distfinder()
 	if distance > 1000:
 		flightnumber = "DE701"
 	else:
