@@ -1,24 +1,42 @@
 import airportsdata
 import geopy.distance
+from fpdf import FPDF
 
 distance = 11
 dep = 'FAB'
 arr = 'FAB'
+arrname = 'Farnborough'
+depname = 'Farnborough'
 
 
 def distfinder():
 	global distance
 	global arr
+	global arrname
+	global depname
 
 	depcords = airportsdata.load('IATA')[dep]
 	depcords = depcords.pop('lat'), depcords.pop('lon')
+	depname = airportsdata.load('IATA')[dep].pop('name')
 	arr = input("Arrival code? ").upper()
 	airports = airportsdata.load('IATA')
 	arrivalfull = airports[arr]
 	lat = arrivalfull.pop('lat')
 	lon = arrivalfull.pop('lon')
+	arrname = arrivalfull.pop('name')
 	arrcords = (lat, lon)
 	distance = geopy.distance.geodesic(depcords, arrcords).mi
+
+
+def ticketcreate():
+	pdf = FPDF()
+	pdf.add_page()
+	pdf.set_font("Arial", size = 15)
+	pdf.cell(200, 10, depname,
+			ln = 1, align = 'C')
+	pdf.cell(200, 10, arrname,
+			ln = 2, align = 'C')
+	pdf.output("original.pdf")
 
 
 def farnborough():
@@ -29,7 +47,10 @@ def farnborough():
 		flightnumber = "DE3"
 	else:
 		flightnumber = "DE11"
-	print(dep, arr, flightnumber)
+	ticketcreate()
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def luton():
@@ -40,7 +61,9 @@ def luton():
 		flightnumber = "DE111"
 	else:
 		flightnumber = "DE101"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def biggin():
@@ -51,7 +74,9 @@ def biggin():
 		flightnumber = "DE51"
 	else:
 		flightnumber = "DE49"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def teter():
@@ -62,7 +87,9 @@ def teter():
 		flightnumber = "DE301"
 	else:
 		flightnumber = "DE311"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def hayward():
@@ -73,7 +100,9 @@ def hayward():
 		flightnumber = "DE401"
 	else:
 		flightnumber = "DE411"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def tash():
@@ -84,7 +113,9 @@ def tash():
 		flightnumber = "DE81"
 	else:
 		flightnumber = "N/A - No shorthaul out of Tashkent"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def kansai():
@@ -95,7 +126,9 @@ def kansai():
 		flightnumber = "261"
 	else:
 		flightnumber = "259"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
 
 
 def douala():
@@ -106,4 +139,6 @@ def douala():
 		flightnumber = "DE701"
 	else:
 		flightnumber = "DE703"
-	print(dep, arr, flightnumber)
+	print(dep, "-", depname)
+	print(arr, "-", arrname)
+	print(flightnumber)
